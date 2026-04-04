@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code || DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+
+    function addLanguage(langName){
+        const li= document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').
+        appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+
+// optimized approach
+function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('golang')
+
+    // Edit value
+   const secondLang= document.querySelector("li:nth-child(2)")
+//    secondLang.innerHTML="Mojo"
+
+   const newli=document.createElement('li')
+   newli.textContent = "Mojo"
+   secondLang.replaceWith(newli)
+
+   //edit value
+
+   const firstLang = document.querySelector("li:first-child")
+   firstLang.outerHTML='<li>Typescript</li>'
+
+   //remove value
+
+   const lastLang = document.querySelector('li:last-child')
+   lastLang.remove()
+
+//    The Document Object Model (DOM) connects web pages to scripts or programming
+//  languages by representing the structure of a document—such as the HTML representing 
+// a web page—in memory. Usually it refers to JavaScript, even though modeling HTML, SVG,
+//  or XML documents as objects are not part of the core JavaScript language.
+</script>
+</html>
