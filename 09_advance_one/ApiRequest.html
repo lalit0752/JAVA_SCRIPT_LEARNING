@@ -1,0 +1,59 @@
+<!-- // API is a talking language(bridge) between two systems
+//An API in JavaScript usually means interacting with an Application 
+Programming Interface (API) using JavaScript—most commonly to fetch or
+ send data to a server. -->
+
+ <!-- 🔹 How JavaScript Uses APIs
+
+In JavaScript (especially in browsers), you use APIs to:
+
+Get data from servers
+Send data (forms, login info, etc.)
+Work with external services (weather, maps, payment, etc.)
+🔹 1. Using fetch() (Most Common)
+fetch('https://jsonplaceholder.typicode.com/posts')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.log(error));
+📌 Explanation:
+fetch() → makes request to API
+response.json() → converts response to JSON
+data → actual result -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API request</title>
+</head>
+<body>
+    Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+</body>
+<script>
+ const requestUrl ='https://api.github.com/users/lalit0752'
+ const xhr = new XMLHttpRequest();
+ xhr.open('GET',requestUrl)
+ // for continuous state
+ xhr.onreadystatechange=function(){
+console.log(xhr.readyState);
+    if (xhr.readyState===4) {
+        const data=JSON.parse (this.responseText)   // response from url is generally string
+        //JSON.parse=> convert data into sring
+    
+        console.log(data.followers);
+        
+    }
+ }
+// JS run by V8 engine
+
+xhr.send();
+// console.log("here");
+
+</script>
+</html>
