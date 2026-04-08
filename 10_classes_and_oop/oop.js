@@ -47,3 +47,4 @@ console.log(userOne.constructor);
 // jb hmm new keyword use krte hai to ek empty object generate hota hai
 // ek constructor function call hota hai new keyword ke karan
 
+
